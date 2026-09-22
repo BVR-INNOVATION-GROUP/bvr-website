@@ -220,7 +220,12 @@ img {
 }
 
 .section--dark {
-  background: radial-gradient(ellipse 90% 70% at 50% 35%, #151a22 0%, var(--color-obsidian) 45%, #050608 100%);
+  background: radial-gradient(
+    ellipse 90% 70% at 50% 35%,
+    #151a22 0%,
+    var(--color-obsidian) 45%,
+    #050608 100%
+  );
   color: var(--color-bone);
 }
 
@@ -488,7 +493,7 @@ img {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 150;
+  z-index: 250;
   margin: 0;
   padding: max(4.5rem, calc(env(safe-area-inset-top) + 3rem)) 1.5rem
     max(2.5rem, env(safe-area-inset-bottom));
@@ -502,15 +507,31 @@ img {
   gap: 0.125rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  transition: height 0.3s ease-in-out;
 }
 
 .site-header--dark .site-nav {
   background: var(--color-obsidian);
   box-shadow: none;
+  transition: background 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .site-nav.is-open {
   display: flex;
+  height: 100vh;
+  transition: ease-in-out;
+}
+
+nav .close {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav .close {
+    display: flex;
+    margin-top: 40px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -941,7 +962,10 @@ img {
   color: var(--color-ink);
   border-radius: var(--r);
   background-color: rgba(176, 138, 62, 0.09);
-  background-image: linear-gradient(var(--color-old-gold), var(--color-old-gold));
+  background-image: linear-gradient(
+    var(--color-old-gold),
+    var(--color-old-gold)
+  );
   background-size: 3px 100%;
   background-position: 0 0;
   background-repeat: no-repeat;
@@ -1107,7 +1131,8 @@ select:focus,
 textarea:focus {
   outline: none;
   background: #fff;
-  box-shadow: 0 0 0 2px rgba(176, 138, 62, 0.45), 0 2px 8px rgba(26, 20, 16, 0.08);
+  box-shadow: 0 0 0 2px rgba(176, 138, 62, 0.45),
+    0 2px 8px rgba(26, 20, 16, 0.08);
 }
 
 .section--dark input,
